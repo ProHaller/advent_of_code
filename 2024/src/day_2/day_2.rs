@@ -8,7 +8,7 @@ pub fn part_2(input: &str) -> usize {
     input
         .lines()
         .map(parse_report)
-        .filter(|report| is_monotone_with_tolerance(report))
+        .filter(|report| safecheck_with_tolerance(report))
         .count()
 }
 
@@ -32,7 +32,7 @@ fn is_monotone(line: &[u64]) -> bool {
 }
 
 #[allow(dead_code)]
-fn is_bruteforced_monotone(line: &[u64]) -> bool {
+fn bruteforced_safecheck(line: &[u64]) -> bool {
     for n in 0..line.len() {
         let mut test_line = Vec::from(line);
         test_line.remove(n);
@@ -45,7 +45,10 @@ fn is_bruteforced_monotone(line: &[u64]) -> bool {
     false
 }
 
-fn is_monotone_with_tolerance(line: &[u64]) -> bool {
+// FIX: This does not work with [1, 2, 5, 3, 4, 7, 8]
+//                                     ^  ^  ^
+// 3 is the first out of order but 5 is the one to eliminate
+fn safecheck_with_tolerance(line: &[u64]) -> bool {
     // check if the line is monotone after the first element
     if is_monotone(&line[1..]) {
         println!("{:<40} {:>5}", format!("{:?}", line), "true");
