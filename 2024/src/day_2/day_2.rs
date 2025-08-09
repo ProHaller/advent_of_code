@@ -1,4 +1,6 @@
-fn parse_report(line: &str) -> Vec<u64> {
+use std::{collections::HashSet, ops::Add};
+
+fn parse_report(line: &str) -> Vec<i64> {
     line.split_whitespace()
         .map(|n| n.parse().unwrap())
         .collect()
@@ -8,11 +10,11 @@ pub fn part_2(input: &str) -> usize {
     input
         .lines()
         .map(parse_report)
-        .filter(|report| safecheck_with_tolerance(report))
+        .filter(|report| bruteforced_safecheck(report))
         .count()
 }
 
-fn is_monotone(line: &[u64]) -> bool {
+fn is_monotone(line: &[i64]) -> bool {
     // check if on or less numbers
     if line.len() <= 1 {
         return true;
@@ -32,23 +34,25 @@ fn is_monotone(line: &[u64]) -> bool {
 }
 
 #[allow(dead_code)]
-fn bruteforced_safecheck(line: &[u64]) -> bool {
+pub fn bruteforced_safecheck(line: &[i64]) -> bool {
     for n in 0..line.len() {
         let mut test_line = Vec::from(line);
         test_line.remove(n);
         if is_monotone(&test_line) {
-            println!("{:<40} {t:>5}", format!("{:?}", line), t = "true");
+            println!("true\n");
+            // println!("{:<40} {t:>5}", format!("{:?}", line), t = "true");
             return true;
         }
     }
-    println!("{:<40} {f:>5}", format!("{:?}", line), f = "false");
+    println!("false\n");
+    // println!("{:<40} {f:>5}", format!("{:?}", line), f = "false");
     false
 }
 
 // FIX: This does not work with [1, 2, 5, 3, 4, 7, 8]
 //                                     ^  ^  ^
 // 3 is the first out of order but 5 is the one to eliminate
-fn safecheck_with_tolerance(line: &[u64]) -> bool {
+fn safecheck_with_tolerance(line: &[i64]) -> bool {
     // check if the line is monotone after the first element
     if is_monotone(&line[1..]) {
         println!("{:<40} {:>5}", format!("{:?}", line), "true");
