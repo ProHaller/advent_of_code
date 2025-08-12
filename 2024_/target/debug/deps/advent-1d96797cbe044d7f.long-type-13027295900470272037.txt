@@ -1,0 +1,1 @@
+impl nom::Parser<_, Output = std::vec::Vec<<std::result::Result<(&str, std::vec::Vec<(i32, i32)>), nom::Err<nom::error::Error<&str>>> as nom::Parser<_>>::Output>, Error = <std::result::Result<(&str, std::vec::Vec<(i32, i32)>), nom::Err<nom::error::Error<&str>>> as nom::Parser<_>>::Error>

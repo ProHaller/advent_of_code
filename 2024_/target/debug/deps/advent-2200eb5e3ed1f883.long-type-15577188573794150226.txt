@@ -1,0 +1,1 @@
+FilterMap<std::iter::Map<std::option::Iter<'_, day_4::Cell>, {closure@src/day_4.rs:110:26: 110:32}>, {closure@src/day_4.rs:111:33: 111:47}>

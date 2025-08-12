@@ -1,0 +1,1 @@
+std::iter::FlatMap<std::option::Iter<'_, (Direction, day_4::Cell)>, Filter<std::slice::Iter<'_, day_4::Letter>, {closure@src/day_4.rs:35:29: 35:32}>, {closure@src/day_4.rs:32:40: 32:48}>

@@ -1,0 +1,1 @@
+impl FnMut(&str) -> std::result::Result<(&str, char), nom::Err<nom::error::Error<(&str, (i32, i32))>>>

@@ -1,0 +1,1 @@
+(&str, (std::option::Option<(i32, i32)>, (std::option::Option<(i32, i32)>, std::option::Option<bool>)))

@@ -1,0 +1,1 @@
+std::iter::FlatMap<std::iter::FlatMap<std::slice::Iter<'_, &day_4::Letter>, std::vec::Vec<day_4::Letter>, {closure@src/day_4.rs:32:19: 32:23}>, std::vec::Vec<day_4::Letter>, {closure@src/day_4.rs:45:19: 45:24}>

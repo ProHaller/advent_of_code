@@ -1,0 +1,1 @@
+(impl Fn(_) -> Result<(_, _), nom::Err<_>>, Choice<(Result<(fn(_) -> Option<_> {Option::<_>::Some}, fn(_) -> Option<_> {Option::<_>::Some}), nom::Err<_>>, Result<(fn(_) -> Option<_> {Option::<_>::Some}, fn(_) -> Option<_> {Option::<_>::Some}), nom::Err<_>>)>)

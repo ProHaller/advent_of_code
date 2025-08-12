@@ -1,0 +1,1 @@
+for<'a> fn(&'a str) -> std::result::Result<(&'a str, std::option::Option<(i32, i32)>), nom::Err<nom::error::Error<&'a str>>> {day_3::day_3::find_mul}
