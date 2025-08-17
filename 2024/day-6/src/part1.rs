@@ -1,13 +1,11 @@
-#![allow(unused)]
-
 use std::collections::HashMap;
 
 use nom::{
     branch::alt,
-    character::complete::{anychar, char, digit1, newline},
+    character::complete::{char, newline},
     combinator::map_res,
     error::Error,
-    multi::{many1, many_till, separated_list1},
+    multi::{many1, separated_list1},
     Parser,
 };
 
@@ -35,7 +33,7 @@ pub fn process(input: &str) -> miette::Result<String> {
     Ok(sum.to_string())
 }
 
-fn trace(pos_map: &mut Pos) {
+pub fn trace(pos_map: &mut Pos) {
     // 1) Find starting (pos, dir) without keeping any &mut alive
     let (mut pos, mut dir) = pos_map
         .iter()
@@ -87,11 +85,6 @@ impl Dir {
     }
 }
 
-#[inline]
-fn apply_move((dir, pos): (Dir, [isize; 2])) -> (Dir, [isize; 2]) {
-    let [dr, dc] = dir.delta();
-    (dir, [pos[0] + dr, pos[1] + dc])
-}
 pub const ORDER: [Dir; 4] = [Dir::Up, Dir::Right, Dir::Down, Dir::Left];
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -102,7 +95,7 @@ pub enum State {
 }
 
 impl State {
-    fn step(&mut self, front: &State) -> Option<Self> {
+    pub fn step(&mut self, front: &State) -> Option<Self> {
         if !matches!(self, State::Guard(_)) {
             panic!();
         }
@@ -117,7 +110,7 @@ impl State {
             _ => unreachable!(),
         }
     }
-    fn ground_is_true(&self) -> bool {
+    pub fn ground_is_true(&self) -> bool {
         match self {
             State::Wall => false,
             State::Ground(true) => true,
@@ -133,23 +126,6 @@ pub enum Dir {
     Right,
     Down,
     Left,
-}
-
-impl Dir {
-    fn next(&self) -> Self {
-        let next = ORDER
-            .iter()
-            .position(|x| self == x)
-            .map(|i| i + 1 % ORDER.len());
-        ORDER[next.unwrap()]
-    }
-    fn turn(&self, state: &State) -> Option<Self> {
-        match state {
-            State::Wall => None,
-            State::Ground(_) => Some(self.next()),
-            _ => unreachable!(),
-        }
-    }
 }
 
 #[inline]
@@ -174,7 +150,7 @@ impl From<char> for State {
 }
 
 pub fn parse_map(input: &str) -> Vec<Vec<State>> {
-    let (rest, map): (&str, Vec<Vec<State>>) = separated_list1(
+    let (_rest, map): (&str, Vec<Vec<State>>) = separated_list1(
         newline::<&str, Error<&str>>,
         many1(map_res(
             alt((
