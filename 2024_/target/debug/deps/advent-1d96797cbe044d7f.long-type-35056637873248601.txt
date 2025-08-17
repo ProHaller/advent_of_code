@@ -1,1 +1,0 @@
-std::result::Result<(&str, std::vec::Vec<(i32, i32)>), nom::Err<nom::error::Error<&str>>>: nom::Parser<_>

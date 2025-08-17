@@ -1,1 +1,0 @@
-std::result::Result<(&str, (std::option::Option<(i32, i32)>, std::option::Option<bool>)), nom::Err<nom::error::Error<&str>>>

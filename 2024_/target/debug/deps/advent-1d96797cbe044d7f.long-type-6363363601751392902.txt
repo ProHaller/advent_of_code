@@ -1,2 +1,0 @@
-nom::branch::Choice<for<'a> fn(&'a str) -> std::result::Result<(&'a str, day_3::day_3::Instruction), nom::Err<nom::error::Error<&'a str>>> {day_3::day_3::parse_one_mul}>
-nom::branch::Choice<for<'a> fn(&'a str) -> std::result::Result<(&'a str, day_3::day_3::Instruction), nom::Err<nom::error::Error<&'a str>>> {day_3::day_3::parse_one_mul}>: nom::Parser<_>
