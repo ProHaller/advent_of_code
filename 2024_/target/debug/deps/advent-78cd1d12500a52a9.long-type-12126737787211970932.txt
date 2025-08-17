@@ -1,1 +1,0 @@
-std::iter::FlatMap<std::iter::Take<std::iter::Enumerate<std::str::Lines<'_>>>, (), {closure@src/day_4.rs:70:19: 70:28}>

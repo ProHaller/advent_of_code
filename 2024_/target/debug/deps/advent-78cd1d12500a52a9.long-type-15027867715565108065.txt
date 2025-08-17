@@ -1,1 +1,0 @@
-(&str, (std::option::Option<day_3::day_3::Instruction>, std::option::Option<day_3::day_3::Instruction>))

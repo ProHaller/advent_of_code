@@ -1,1 +1,0 @@
-Choice<(for<'a> fn(&'a str) -> Result<(&'a str, Option<(i32, i32)>), nom::Err<nom::error::Error<&'a str>>> {find_mul}, for<'a> fn(&'a str) -> Result<(&'a str, Option<bool>), nom::Err<nom::error::Error<&'a str>>> {day_3::day_3::find_do})>

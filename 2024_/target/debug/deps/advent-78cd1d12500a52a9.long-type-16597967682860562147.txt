@@ -1,1 +1,0 @@
-impl nom::Parser<&str, Output = std::vec::Vec<<impl nom::Parser<&str, Output = std::option::Option<std::vec::Vec<(i32, i32)>>, Error = nom::error::Error<&str>> as nom::Parser<&str>>::Output>, Error = <impl nom::Parser<&str, Output = std::option::Option<std::vec::Vec<(i32, i32)>>, Error = nom::error::Error<&str>> as nom::Parser<&str>>::Error>

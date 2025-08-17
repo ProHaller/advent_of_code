@@ -1,1 +1,0 @@
-std::iter::FilterMap<std::iter::FilterMap<std::slice::Iter<'_, &day_4::Letter>, {closure@src/day_4.rs:33:33: 33:36}>, {closure@src/day_4.rs:33:60: 33:68}>

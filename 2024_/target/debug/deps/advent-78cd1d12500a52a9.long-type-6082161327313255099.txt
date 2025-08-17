@@ -1,1 +1,0 @@
-std::iter::Map<std::iter::Enumerate<std::str::Chars<'_>>, {closure@src/day_4.rs:72:53: 72:62}>
