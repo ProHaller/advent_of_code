@@ -9,7 +9,6 @@ use nom::{
     Parser,
 };
 
-pub type Pos = HashMap<[isize; 2], State>;
 #[tracing::instrument]
 pub fn process(input: &str) -> miette::Result<String> {
     let map = parse_map(input);
@@ -75,7 +74,7 @@ pub fn trace(pos_map: &mut Pos) {
 
 impl Dir {
     #[inline]
-    fn delta(self) -> [isize; 2] {
+    pub fn delta(self) -> [isize; 2] {
         match self {
             Dir::Up => [-1, 0],
             Dir::Right => [0, 1],
@@ -85,6 +84,7 @@ impl Dir {
     }
 }
 
+pub type Pos = HashMap<[isize; 2], State>;
 pub const ORDER: [Dir; 4] = [Dir::Up, Dir::Right, Dir::Down, Dir::Left];
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -120,7 +120,7 @@ impl State {
     }
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, Hash, PartialEq, Eq, Clone, Copy)]
 pub enum Dir {
     Up,
     Right,
@@ -129,7 +129,7 @@ pub enum Dir {
 }
 
 #[inline]
-fn turn_right(d: Dir) -> Dir {
+pub fn turn_right(d: Dir) -> Dir {
     ORDER[(ORDER.iter().position(|x| *x == d).unwrap() + 1) & 3]
 }
 
