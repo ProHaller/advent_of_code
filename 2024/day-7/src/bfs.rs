@@ -2,7 +2,6 @@ use std::{
     collections::{HashMap, HashSet, VecDeque},
     hash::Hash,
     iter::Sum,
-    ops::{Add, Mul},
 };
 
 use crate::part1::Op;

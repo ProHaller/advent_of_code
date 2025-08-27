@@ -134,11 +134,11 @@ pub fn set_antinode(a: Pos, b: Pos, map_size: i32) -> Vec<Pos> {
 }
 
 fn apply_delta(a: Pos, b: Pos, v_ab: Pos) -> (Pos, Pos) {
-    let mut antinode_a = a.shifted(Pos {
+    let antinode_a = a.shifted(Pos {
         x: v_ab.x,
         y: v_ab.y,
     });
-    let mut antinode_b = b.shifted(Pos {
+    let antinode_b = b.shifted(Pos {
         x: -v_ab.x,
         y: -v_ab.y,
     });

@@ -5,7 +5,6 @@ use std::{
 
 use miette::Result;
 
-use crate::part1::Rules;
 
 pub type Graph<T> = HashMap<T, HashSet<T>>;
 
