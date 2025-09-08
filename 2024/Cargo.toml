@@ -1,17 +1,6 @@
 [workspace]
-members = [
-    "day-*",
-    "day-1",
-    "day-2",
-    "day-3",
-    "day-4",
-    "day-5",
-    "day-6",
-    "day-7",
-    "day-8",
-    "day-9",
-]
-default-members = ["day-*"]
+members = ["day-*", "aoc_utils"]
+default-members = ["day-*", "aoc_utils"]
 resolver = "3"
 
 [workspace.dependencies]
@@ -27,6 +16,7 @@ rstest = "0.26.1"
 rstest_reuse = "0.7.0"
 thiserror = "2.0.3"
 tracing = "0.1.41"
+aoc_utils = { path = "aoc_utils" }
 
 [workspace.dependencies.miette]
 version = "7.6"
@@ -38,8 +28,5 @@ features = ["trace"]
 default-features = false
 
 [workspace.dependencies.tracing-subscriber]
-version = "0.3.19"
-features = [
-    "fmt",
-    "env-filter",
-]
+version = "0.3.20"
+features = ["fmt", "env-filter"]
